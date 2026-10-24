@@ -1,0 +1,58 @@
+Si tiene fiebre y tiene estornudos entonces tiene gripe
+
+Si tiene estornudos y no tiene fiebre entonces tiene alergia
+
+tiene estornudos
+
+no tiene fiebre
+------------------------------------------
+
+------------------------------------------
+Si llueve y hace frío entonces nos quedamos en casa
+
+Si hace frío y no llueve entonces vamos al parque
+
+hace frío
+
+no llueve
+------------------------------------------
+
+------------------------------------------
+Si hace ruido y se calienta entonces el ventilador falla
+
+Si se calienta y no hace ruido entonces la pasta térmica está seca
+
+se calienta
+
+no hace ruido
+------------------------------------------
+
+------------------------------------------
+Si tiene saldo y tiene tarjeta entonces aprueba la compra
+
+Si tiene tarjeta y no tiene saldo entonces rechaza la compra
+
+tiene tarjeta
+
+no tiene saldo
+-------------------------------------------
+
+Si el motor esta caliente y no tiene aceite entonces funde el motor
+
+Si el motor esta caliente y tiene aceite entonces enciende el ventilador
+
+Si la presion es alta y no tiene aceite entonces activa la alarma de emergencia
+
+Si la presion es alta y tiene aceite entonces reduce la velocidad
+
+Si hay vibracion y el motor esta caliente entonces apaga la maquina
+
+Si la presion es baja y no hay vibracion entonces continua operando
+
+el motor esta caliente
+
+la presion es alta
+
+no tiene aceite
+
+hay vibracion
