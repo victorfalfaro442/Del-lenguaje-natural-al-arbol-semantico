@@ -1117,6 +1117,86 @@ class InterfazSistemasExpertos:
         )
 
         # -----------------------------------------------------
+        # MOSTRAR EN LA TERMINAL LOS MUNDOS / RAMAS VÁLIDAS.
+        # Este bloque solo imprime los resultados calculados;
+        # no modifica el árbol, las reglas ni la interfaz.
+        # -----------------------------------------------------
+        print("\n" + "=" * 76)
+        print("MUNDOS VÁLIDOS QUE SATISFACEN LA BASE DE CONOCIMIENTOS")
+        print("=" * 76)
+        print("Premisas consideradas verdaderas:")
+        for indice, premisa in enumerate(self.motor.premisas, start=1):
+            print(f"  {indice}. {texto_formula(premisa)}")
+
+        if mundos_validos:
+            if completar_mundos:
+                print(
+                    f"\nTotal de mundos válidos distintos: "
+                    f"{len(mundos_validos)}"
+                )
+                for numero, mundo in enumerate(mundos_validos, start=1):
+                    print(f"\n🌎 MUNDO VÁLIDO #{numero}")
+                    asignaciones = mundo['asignaciones']
+
+                    for indice, proposicion in enumerate(
+                        self.motor.proposiciones,
+                        start=1
+                    ):
+                        atomo = f'x[{indice}]'
+                        valor = asignaciones.get(atomo)
+
+                        if valor is True:
+                            estado = 'VERDADERO (V)'
+                        elif valor is False:
+                            estado = 'FALSO (F)'
+                        else:
+                            estado = 'SIN ASIGNAR'
+
+                        print(
+                            f"  {atomo} ({proposicion}) = {estado}"
+                        )
+            else:
+                print(
+                    f"\nTotal de ramas abiertas: {len(mundos_validos)}"
+                )
+                print(
+                    "Nota: se muestran las asignaciones de cada rama abierta; "
+                    "las proposiciones libres pueden ser V o F."
+                )
+
+                for numero, mundo in enumerate(mundos_validos, start=1):
+                    print(f"\n🌿 RAMA ABIERTA #{numero}")
+                    asignaciones = mundo['asignaciones']
+
+                    for indice, proposicion in enumerate(
+                        self.motor.proposiciones,
+                        start=1
+                    ):
+                        atomo = f'x[{indice}]'
+                        valor = asignaciones.get(atomo)
+
+                        if valor is True:
+                            estado = 'VERDADERO (V)'
+                        elif valor is False:
+                            estado = 'FALSO (F)'
+                        else:
+                            estado = 'LIBRE (V o F)'
+
+                        print(
+                            f"  {atomo} ({proposicion}) = {estado}"
+                        )
+        else:
+            print("\n❌ No existen mundos válidos: todas las ramas se cerraron.")
+
+        print(f"\nRamas cerradas por contradicción: {ramas_cerradas[0]}")
+        if mundos_repetidos[0]:
+            print(
+                f"Ramas que repetían un mundo ya listado: "
+                f"{mundos_repetidos[0]}"
+            )
+        print("=" * 76 + "\n")
+
+        # -----------------------------------------------------
         # DISTRIBUCIÓN JERÁRQUICA DEL ÁRBOL.
         # -----------------------------------------------------
         posiciones = {}
